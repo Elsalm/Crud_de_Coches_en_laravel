@@ -31,6 +31,10 @@
            <input type="text" name="marca" placeholder="marca">
            <label for="modelo">Modelo</label>
            <input type="text" name="modelo" placeholder="modelo">
+           <label for="precio">precio</label>
+            <input type="text" name="precio" placeholder="precio">
+            <label for="anio">año</label>
+            <input type="text" name="anio" placeholder="año">
            <label for="color">Color</label>
            <input type="color" name="color">
            <button type="submit">crear</button>

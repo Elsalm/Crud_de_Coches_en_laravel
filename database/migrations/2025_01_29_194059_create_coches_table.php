@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->string("marca");
             $table->string("modelo");
             $table->string("color");
+            $table->string("anio");
+            $table->string("precio");
             $table->timestamps();
         });
     }

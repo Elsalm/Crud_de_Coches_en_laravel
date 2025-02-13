@@ -10,10 +10,10 @@ class cochesController extends Controller
     {
         $query = Coche::query();
         if (request()->has("search")) {
-            $search = request()->get("search", "");
-            $query->where("marca", "like", "%" . $search . "%");
+            $search = request()->get("search");
+            $query->search($search);
         }
-
+        $query->filter();
         $coches = $query->get();
         return view("home", ["coches" => $coches]);
     }
@@ -23,6 +23,8 @@ class cochesController extends Controller
         $campos = $request->validate([
             "marca" => "required|string",
             "modelo" => "required|string",
+            "anio" => "required|string",
+            "precio" => "required|string",
             "color" => "required|string",
         ]);
         Coche::create($campos);
@@ -40,6 +42,8 @@ class cochesController extends Controller
             "marca" => "required|string",
             "modelo" => "required|string",
             "color" => "required|string",
+            "año" => "required|integer",
+            "precio" => "required|float",
         ]);
         $coche->update($campos);
         return redirect("/");
